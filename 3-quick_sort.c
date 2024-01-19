@@ -21,6 +21,7 @@ void swap(int *first, int *second)
  * @array: array
  * @low: low index
  * @high: pivot
+ * @size: size of array
  * Return: int
  */
 int lomuto(int *array, int low, int high, int size)
@@ -49,6 +50,7 @@ int lomuto(int *array, int low, int high, int size)
  * @low: low index
  * @high: pivot
  * Return: void
+ * @size: size
  */
 void recusrion_quick_sort(int *array, int low, int high, size_t size)
 {
