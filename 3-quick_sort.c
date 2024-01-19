@@ -27,7 +27,7 @@ int lomuto(int *array, int low, int high, int size)
 {
 	int cur, left = low;
 
-	for(cur = low; cur < high; cur++)
+	for (cur = low; cur < high; cur++)
 	{
 		if (array[cur] <= array[high])
 		{
@@ -50,7 +50,7 @@ int lomuto(int *array, int low, int high, int size)
  * @high: pivot
  * Return: void
  */
-void recusrion_quick_sort(int *array, int low,int high, size_t size)
+void recusrion_quick_sort(int *array, int low, int high, size_t size)
 {
 	int new_low;
 
