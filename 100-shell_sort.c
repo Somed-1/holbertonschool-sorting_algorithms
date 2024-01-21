@@ -11,7 +11,7 @@ void shell_sort(int *array, size_t size) {
 	int i, j, key;
 
 	/* Knuth Sequence */
-	while (h <= size / 3)
+	while ((size_t)h <= size / 3)
 		h = 3 * h + 1;
 
 	while (h > 0) 
