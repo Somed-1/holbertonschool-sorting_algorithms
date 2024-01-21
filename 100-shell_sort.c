@@ -16,7 +16,7 @@ void shell_sort(int *array, size_t size) {
 
 	while (h > 0) 
 	{
-		for (i = h; i < size; i++)
+		for (i = h; (size_t)i < size; i++)
 		{
 			key = array[i];
 			j = i;
