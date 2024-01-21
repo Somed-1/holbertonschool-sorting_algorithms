@@ -10,6 +10,9 @@ void shell_sort(int *array, size_t size) {
 	int h = 1;
 	int i, j, key;
 
+	if (size == 1 || array == NULL)
+		return;
+
 	/* Knuth Sequence */
 	while ((size_t)h <= size / 3)
 		h = 3 * h + 1;
@@ -29,8 +32,6 @@ void shell_sort(int *array, size_t size) {
 
 			array[j] = key;
 		}
-		if (i != j)
-			print_array(array, size);
 
 		h = (h - 1) / 3;
 	}
