@@ -6,7 +6,8 @@
  * @size: size of array
  * Return: void
  */
-void shell_sort(int *array, size_t size) {
+void shell_sort(int *array, size_t size)
+{
 	int h = 1;
 	int i, j, key;
 
