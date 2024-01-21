@@ -16,15 +16,13 @@ void shell_sort(int *array, size_t size) {
 
 	while (h > 0) 
 	{
-		for (int i = h; i < size; i++)
+		for (i = h; i < size; i++)
 		{
 			key = array[i];
 			j = i;
-			print("Index: %d, Key: %d, Checked: ", i, key);
 
 			while (j >= h && array[j - h] > key)
 			{
-				printf("j:%d, el: %d", j, array[j]);
 				array[j] = array[j - h];
 				j -= h;
 			}
