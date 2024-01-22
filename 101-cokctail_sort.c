@@ -27,64 +27,71 @@ void swap_nodes(listint_t *first, listint_t *second)
 
 	second->prev = f_prev;
 	second->next = first;
-
 }
 
 /**
- * list_len - size of list
- * @list: first node
- * Return: size of list
+ * last_elem - last_elem
+ * *first: first node
+ * Return: last elem
  */
-int list_len(listint_t **list)
+listint_t *last_elem(listint_t *first)
 {
-	listint_t *temp = *list;
-	int len = 0;
-
-	while (temp != NULL)
-	{
-		temp = temp->next;
-		len++;
-	}
-	return (len);
+	while (first->next != NULL)
+		first = first->next;
+	return (first);
 }
 
 void cocktail_sort_list(listint_t **list)
 {
-	int left = 0;
-	int right = list_len(list) - 1;
-	int i, j;
-	listint_t *temp;
+	listint_t *left, *right;
+	listint_t *cur;
+	int swaped = 0;
 
 	if (list == NULL || *list == NULL)
 		return;
 
-	temp = *list;
-	printf("%d\n", right);
-	while (left <= right)
+	left = *list;
+	right = last_elem(*list);
+
+	while (left!= right && right->next!= left && swaped == 0)
 	{
-		for (i = left; i < right && temp->next != NULL; i++)
+		swaped = 1;
+		cur = left;
+		while (cur != right)
 		{
-			if (temp->n > temp->next->n)
+			if (cur->next == NULL)
+				break;
+			if (cur->n > cur->next->n)
 			{
-				swap_nodes(temp, temp->next);
-				if (temp->next->prev == NULL)
-					*list = temp->next;
+				swap_nodes(cur, cur->next);
+				swaped = 0;
+				print_list(*list);
 			}
-			temp = temp->next;
+			else
+			{
+				cur = cur->next;
+			}
 		}
-		right--;
-		temp = temp->prev;
-		for (j = right; j > left && temp != NULL; j--)
+		right = cur;
+
+		while (cur!= left)
 		{
-			if (temp->n < temp->prev->n)
+			if (cur->prev == NULL)
+				break;
+			if (cur->n < cur->prev->n)
 			{
-				swap_nodes(temp->prev, temp);
-				if (temp->prev == NULL)
-					*list = temp;
+				swap_nodes(cur->prev, cur);
+				swaped = 0;
+				if (cur->prev == NULL)
+					*list = cur;
+				print_list(*list);
 			}
-			temp = temp->prev;
+			else
+			{
+				cur = cur->prev;
+			}
 		}
-		left++;
-		temp = *list;
+		print_list(*list);
+		left = left->next;
 	}
 }
