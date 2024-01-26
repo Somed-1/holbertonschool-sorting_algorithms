@@ -53,7 +53,7 @@ void cocktail_sort_list(listint_t **list)
 	left = *list;
 	right = last_elem(*list);
 
-	while (left!= right && right->next!= left && swaped == 0)
+	while (left != right && right->next != left && swaped == 0)
 	{
 		swaped = 1;
 		cur = left;
@@ -94,6 +94,6 @@ void cocktail_sort_list(listint_t **list)
 			}
 		}
 		print_list(*list);
-		left = left->next;
+		left = cur;
 	}
 }
