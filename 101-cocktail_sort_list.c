@@ -75,7 +75,7 @@ void cocktail_sort_list(listint_t **list)
 		if (swaped == 1)
 			break;
 		right = cur;
-
+		swaped = 1;
 		while (cur!= left)
 		{
 			if (cur->prev == NULL)
@@ -93,7 +93,10 @@ void cocktail_sort_list(listint_t **list)
 				cur = cur->prev;
 			}
 		}
-		print_list(*list);
+		if (swaped == 1)
+		{
+			break;
+		}
 		left = cur;
 	}
 }
